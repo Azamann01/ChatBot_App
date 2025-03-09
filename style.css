@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,600;0,700;1,100;1,300;1,400;1,500&display=swap");
+* {
+  font-family: poppins, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: cadetblue;
+}
+.chatbot-segment {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: space-between;
+  border: 1px solid;
+  height: 600px;
+  width: 300px;
+  right: 20px;
+  bottom: 60px;
+
+  .close-button {
+    padding: 8px 0;
+    border: none;
+  }
+}
