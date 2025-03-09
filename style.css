@@ -12,14 +12,85 @@ body {
   flex-direction: column;
   position: absolute;
   justify-content: space-between;
-  border: 1px solid;
+  border: 1px solid transparent;
   height: 600px;
   width: 300px;
   right: 20px;
   bottom: 60px;
+  background-color: transparent;
+  border-radius: 20px 20px 0 0;
 
   .close-button {
     padding: 8px 0;
     border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 20px 20px 0 0;
+    /* margin-bottom: 10px; */
+  }
+  .chat-section {
+    background-color: #fff;
+    flex: 1;
+    padding: 0 8px;
+    overflow-y: scroll;
+
+    p {
+      border-radius: 30px;
+      width: 80%;
+      margin: 5px;
+      font: 50px;
+    }
+
+    .chat-sender {
+      p {
+        background-color: skyblue;
+        padding: 16px;
+      }
+    }
+    .chat-receiver {
+      display: flex;
+      justify-content: flex-end;
+
+      p {
+        background-color: blue;
+        padding: 16px;
+        color: #fff;
+      }
+    }
+  }
+  .input-segment {
+    background-color: aliceblue;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 8px;
+    border: 1px solid lightgray;
+
+    input {
+      height: 45px;
+      flex: 1;
+      border: none;
+      background-color: skyblue;
+      padding-left: 15px;
+      border-radius: 20px;
+      outline: none;
+    }
+    button {
+      height: 40px;
+      width: 40px;
+      border: none;
+      border-radius: 100%;
+      margin-left: 20px;
+      background-color: blue;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    button:hover {
+      background-color: rgb(36, 36, 232);
+      cursor: pointer;
+    }
   }
 }
