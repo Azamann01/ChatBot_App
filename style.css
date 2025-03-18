@@ -45,17 +45,27 @@ body {
       p {
         background-color: skyblue;
         padding: 16px;
+        text-transform: capitalize;
       }
     }
-    .chat-receiver {
+    .model {
       display: flex;
       justify-content: flex-end;
+      color: #fff;
 
       p {
-        background-color: blue;
+        background-color: rgb(25, 25, 206);
         padding: 16px;
         color: #fff;
       }
+    }
+
+    .error-handler {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      color: red;
     }
   }
   .input-segment {
