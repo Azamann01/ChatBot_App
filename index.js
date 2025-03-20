@@ -1,7 +1,7 @@
 // Gemini API segment
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const API_KEY = "AIzaSyA8GaBf-smt7SfdFNkzUFvlshnRNZYy_hA";
+const API_KEY = "_AIzaSyA8GaBf-smt7SfdFNkzUFvlshnRNZYy_hA";
 
 // const genAI = new GoogleGenerativeAI("GEMINI_API_KEY");
 const genAI = new GoogleGenerativeAI(API_KEY);
@@ -66,6 +66,7 @@ async function sendMessage() {
 document
   .querySelector(".chatbot-segment .send-button")
   .addEventListener("click", () => sendMessage());
+
 // TARGETING OUR ENTER KEY WITH SEND BUTTON
 document
   .getElementById("input-text")
