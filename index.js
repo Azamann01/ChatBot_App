@@ -131,9 +131,25 @@ async function sendMessage() {
       const chat = model.startChat(messages);
 
       let result = await chat.sendMessageStream("userMessage");
+
+      document
+        .querySelector(".chatbot-segment .chat-section")
+        .insertAdjacentHTML(
+          "beforeend",
+          `
+          <div class="model">
+            <p></p>
+          </div>`
+        );
+
       for await (const chunk of result.stream) {
         const chunkText = chunk.text();
-        console.log(chunkText);
+        let modelMessages = document.querySelectorAll(
+          ".chatbot-segment .chat-section"
+        );
+        modelMessages[modelMessages.length - 1]
+          .querySelector("p")
+          .insertAdjacentHTML("beforeend", `${chunkText}`);
       }
 
       // let result = await chat.sendMessage(userMessage);
