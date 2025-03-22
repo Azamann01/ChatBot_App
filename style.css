@@ -48,6 +48,7 @@ body {
         text-transform: capitalize;
       }
     }
+
     .model {
       display: flex;
       justify-content: flex-end;
@@ -102,5 +103,31 @@ body {
       background-color: rgb(36, 36, 232);
       cursor: pointer;
     }
+  }
+}
+.chat-loader {
+  width: 10px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 1.3s infinite linear alternate;
+  margin: 20px;
+  opacity: 0.4;
+}
+@keyframes l5 {
+  0% {
+    box-shadow: 20px 0 #000, -20px 0 #0002;
+    background: #000;
+  }
+  33% {
+    box-shadow: 20px 0 #000, -20px 0 #0002;
+    background: #0002;
+  }
+  66% {
+    box-shadow: 20px 0 #0002, -20px 0 #000;
+    background: #0002;
+  }
+  100% {
+    box-shadow: 20px 0 #0002, -20px 0 #000;
+    background: #000;
   }
 }
