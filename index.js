@@ -108,6 +108,7 @@ let messages = {
 
 async function sendMessage() {
   const userMessage = document.querySelector(".chatbot-segment input").value;
+
   if (userMessage.length) {
     try {
       document.querySelector(".chatbot-segment input").value = "";
@@ -122,55 +123,30 @@ async function sendMessage() {
         );
       document
         .querySelector(".chatbot-segment .chat-section")
-        .insertAdjacentHTML(
-          "beforeend",
-          `
-          <div class="chat-loader"></div>`
-        );
+        .insertAdjacentHTML("beforeend", ` <div class="chat-loader"></div>`);
 
       const chat = model.startChat(messages);
-
-      let result = await chat.sendMessageStream("userMessage");
-
+      let result = await chat.sendMessage(userMessage);
       document
         .querySelector(".chatbot-segment .chat-section")
         .insertAdjacentHTML(
           "beforeend",
           `
-          <div class="model">
-            <p></p>
-          </div>`
+        <div class="model">
+          <p>${result.response.text()}</p>
+        </div>`
         );
 
-      for await (const chunk of result.stream) {
-        const chunkText = chunk.text();
-        let modelMessages = document.querySelectorAll(
-          ".chatbot-segment .chat-section"
-        );
-        modelMessages[modelMessages.length - 1]
-          .querySelector("p")
-          .insertAdjacentHTML("beforeend", `${chunkText}`);
-      }
+      // UPDATING THE HISTORY
+      messages.history.push({
+        role: "user",
+        parts: [{ text: userMessage }],
+      });
 
-      // let result = await chat.sendMessage(userMessage);
-      // document.querySelector(".chatbot-segment .chat-section").insertAdjacentHTML(
-      //     "beforeend",
-      //     `
-      //   <div class="model">
-      //     <p>${result.response.text()}</p>
-      //   </div>`
-      //   );
-
-      // // UPDATING THE HISTORY
-      // messages.history.push({
-      //   role: "user",
-      //   parts: [{ text: userMessage }],
-      // });
-
-      // messages.history.push({
-      //   role: "model",
-      //   parts: [{ text: result.response.text() }],
-      // });
+      messages.history.push({
+        role: "model",
+        parts: [{ text: result.response.text() }],
+      });
     } catch (error) {
       document
         .querySelector(".chatbot-segment .chat-section")
@@ -183,9 +159,7 @@ async function sendMessage() {
         );
     }
     // Loader timing section
-    document
-      .querySelector(".chatbot-segment .chat-section .chat-loader")
-      .remove();
+    document.querySelector(".chatbot-segment .chat-section ").remove();
   }
 }
 
