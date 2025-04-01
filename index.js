@@ -183,33 +183,12 @@ document
 // open and close button section
 document.querySelector(".chat-open").addEventListener("click", () => {
   document.querySelector("body").classList.add("chat-open-btn");
+  document.querySelector(".chat-open").style.display = "none";
 });
-
-// const openButton = document.getElementById("#open-btn").addEventListener("click", ()=>{
-//   if (openButton == null)return
-// openButton.style.display = "none"
-// });
 
 document
   .querySelector(".chatbot-segment button.close-button")
   .addEventListener("click", () => {
     document.querySelector("body").classList.remove("chat-open-btn");
+    document.querySelector(".chat-open").style.display = "flex";
   });
-
-// const openButton = document.getElementById("#open-chat");
-// const closeButton = document.getElementById("#btn-close");
-// const chatbotSegment=document.getElementById("#chatbot-page");
-
-// openButton.addEventListener('click', function(){
-//   chatbotSegment.style.display='block'
-//   openButton.style.display='none'
-// })
-
-// // creating the function
-
-// menuOpenButton.addEventListener("click", () =>{
-//     // toggling of menu button
-//     document.body.classList.toggle(".chatbot-segment");
-// });
-// // close menu on click button
-// menuCloseButton.addEventListener("click", () => menuOpenButton.click());
